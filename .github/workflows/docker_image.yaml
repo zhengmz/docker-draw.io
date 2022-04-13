@@ -11,13 +11,15 @@ on:
     - 'alpine/**'
     - 'debian/**'
     - '.github/workflows/docker_image.yaml'
-  schedule:
+#  schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  "0 6 * * *"
+#    - cron:  "0 6 * * *"
+  workflow_dispatch:
 
 
 env:
-  IMAGE: "docker.io/fjudith/draw.io"
+  #IMAGE: "docker.io/fjudith/draw.io"
+  IMAGE: "docker.io/zhengmz/draw.io"
   VERSION_FILE: "./drawio/VERSION"
 
 jobs:
