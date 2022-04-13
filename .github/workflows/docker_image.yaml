@@ -19,7 +19,7 @@ on:
 
 env:
   #IMAGE: "docker.io/fjudith/draw.io"
-  IMAGE: "docker.io/zhengmz/draw.io"
+  IMAGE: "docker.io/flowsea/draw.io"
   VERSION_FILE: "./drawio/VERSION"
 
 jobs:
@@ -63,7 +63,8 @@ jobs:
         with:
           tags: >-
             ${{ env.IMAGE }}:${{ env.VERSION }}-${{ matrix.drawio }},
-            ${{ env.IMAGE }}:${{ matrix.drawio }}
+            ${{ env.IMAGE }}:${{ matrix.drawio }},
+            ${{ env.IMAGE }}:latest
           build-args:
             VCS_REF=${{ github.ref }}
             VERSION=${{ env.VERSION }}
@@ -83,7 +84,11 @@ jobs:
         id: docker_push
         uses: docker/build-push-action@v2
         with:
-          tags: ${{ env.IMAGE }}:${{ env.VERSION }}-${{ matrix.drawio }},${{ env.IMAGE }}:${{ matrix.drawio }}
+          #tags: ${{ env.IMAGE }}:${{ env.VERSION }}-${{ matrix.drawio }},${{ env.IMAGE }}:${{ matrix.drawio }}
+          tags: >-
+            ${{ env.IMAGE }}:${{ env.VERSION }}-${{ matrix.drawio }},
+            ${{ env.IMAGE }}:${{ matrix.drawio }},
+            ${{ env.IMAGE }}:latest
           context: ${{ matrix.drawio }}/
           file: ${{ matrix.drawio }}/Dockerfile
           platforms: linux/amd64
