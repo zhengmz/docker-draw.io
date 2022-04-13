@@ -1,16 +1,16 @@
 name: Build Image
 
 on:
- push:
-  paths:
-    - 'alpine/**'
-    - 'debian/**'
-    - '.github/workflows/docker_image.yaml'
-  pull_request:
-    paths:
-    - 'alpine/**'
-    - 'debian/**'
-    - '.github/workflows/docker_image.yaml'
+# push:
+#  paths:
+#    - 'alpine/**'
+#    - 'debian/**'
+#    - '.github/workflows/docker_image.yaml'
+#  pull_request:
+#    paths:
+#    - 'alpine/**'
+#    - 'debian/**'
+#    - '.github/workflows/docker_image.yaml'
 #  schedule:
     # * is a special character in YAML so you have to quote this string
 #    - cron:  "0 6 * * *"
